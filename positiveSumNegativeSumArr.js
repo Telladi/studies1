@@ -1,23 +1,13 @@
-let input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]
-let resultArr= function() {
-  let positiveArr = input.filter(function(number) {
-    return number > 0;
-  });
-    let positiveNumber = 0;
-    for (let elem of positiveArr) {
-      positiveNumber += elem;
-    }
-  
-  let negativeArr = input.filter(function(number) {
-    return number < 0;
-  })
-  let negativeNumber = 0;
-  for (let elem of negativeArr) {
-    negativeNumber += elem;
-  }
-  let resArr = [];
-  resArr.push(positiveNumber);
-  resArr.push(negativeNumber);
-  return resArr;
-  }
-  console.log(resultArr(input))
+function countPositivesSumNegatives(input) {
+    let sum = [];
+    
+    let positiveSum = input.filter(elem => elem > 0);
+    let negativeSum = input.filter(elem => elem < 0);
+    let positiveArr = positiveSum.reduce((a, b) => a + b);
+    let negativeArr = negativeSum.reduce((a, b) => a + b);
+    sum.push(positiveArr);
+    sum.push(negativeArr);
+    return sum
+}
+    
+  console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]))
